@@ -1,5 +1,8 @@
 # Hiring Channel App
 
+## INTRO
+Here is a simple app called hiring-app-express-api,an app for connecting between company and engineer on hiring transactions.
+
 ## DATA
 1. Depedencies
 2. Endpoints
