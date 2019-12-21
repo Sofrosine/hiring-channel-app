@@ -26,5 +26,6 @@
 #### 5. get("/showcase") : Showcase List
 
 ### How to filter
-1. Fill in the body,what do you want to filter
-2. Default value of order is ASC
+1. Get /engineer
+2. Fill in the body,what do you want to filter
+3. Default value of order is ASC
