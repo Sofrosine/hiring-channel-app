@@ -3,6 +3,7 @@
 ## DATA
 1. Depedencies
 2. Endpoints
+3. How to filter
 
 ### Dependencies
 1. bcryptjs : 2.4.3
@@ -19,18 +20,11 @@
 ### Endpoints
 
 #### 1. get("/") : Homepage
-#### 2. use("/company") : Companies List
- a. get("/login") : Login as Company
- 
- b. get("/profile") : Your Profile as Company
- 
- c. post("/register") : Register as Company
- 
- d. post("/") : Insert Your Data as Company
- 
- 
- 
-3. "/engineer" : Engineer
-4. "/user" : User
-5. "/skill" : Skill
-6. "/showcase" : Showcase
+#### 2. get("/company") : Companies List
+#### 3. get("/engineer") : Engineers List
+#### 4. get("/skill") : Skill List
+#### 5. get("/showcase") : Showcase List
+
+### How to filter
+1. Fill in the body,what do you want to filter
+2. Default value of order is ASC
