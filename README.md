@@ -24,8 +24,9 @@
 #### 3. get("/engineer") : Engineers List
 #### 4. get("/skill") : Skill List
 #### 5. get("/showcase") : Showcase List
+#### 6. get("engineer/filter") : Filter engineer List
 
 ### How to filter
-1. Get /engineer
+1. Get /engineer/filter
 2. Fill in the body,what do you want to filter
 3. Default value of order is ASC
