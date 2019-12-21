@@ -3,10 +3,17 @@
 ## INTRO
 Here is a simple app called hiring-app-express-api,an app for connecting between company and engineer on hiring transactions.
 
+## TOOLS
+1. VS Code
+2. Postman
+3. Chrome (for phpmyadmin)
+
 ## DATA
 1. Depedencies
 2. Endpoints
 3. How to filter
+
+
 
 ### Dependencies
 1. bcryptjs : 2.4.3
