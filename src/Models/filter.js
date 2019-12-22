@@ -1,37 +1,40 @@
 const db = require('../Configs/db')
 
 module.exports = {
-  filter: (data) => {
+  filter: (query) => {
     return new Promise ((resolve, reject) => {
       let pagination = ``
           search = ``
           sort = ``
           order = ``
+          query.limit = query.limit || 5
+          query.page = query.page || 1
+          query.num = query.page
 
-      if(data.page !== undefined && data.limit !== undefined) {
-        data.page = data.limit * (data.page - 1)
-        pagination= `LIMIT ${data.limit} OFFSET ${data.page}`
+      if(query.page !== undefined && query.limit !== undefined) {
+        query.page = query.limit * (query.page - 1)
+        pagination= `LIMIT ${query.limit} OFFSET ${query.page}`
       }
       
-      if (data.sort_by === 'skill') {
+      if (query.sort_by === 'skill') {
         sort = `ORDER BY COUNT(skill.skill)`
       }
-      else if(data.sort_by !== undefined) {
-        sort = `ORDER BY ${data.sort_by}`
+      else if(query.sort_by !== undefined) {
+        sort = `ORDER BY ${query.sort_by}`
       } 
 
-      if (data.order !== undefined) {
-        order = `${data.order}`
+      if (query.order !== undefined) {
+        order = `${query.order}`
       }
 
-      if(data.name !== undefined && data.skill !== undefined) {
-        search = `WHERE engineer.name LIKE '%${data.name}%' AND skill LIKE '%${data.skill}%'`
+      if(query.name !== undefined && query.skill !== undefined) {
+        search = `WHERE engineer.name LIKE '%${query.name}%' AND skill LIKE '%${query.skill}%'`
       }
-      else if (data.name !== undefined && data.skill === undefined) {
-        search = `WHERE engineer.name LIKE '%${data.name}%'`
+      else if (query.name !== undefined && query.skill === undefined) {
+        search = `WHERE engineer.name LIKE '%${query.name}%'`
       }
-      else if (data.name === undefined && data.skill !== undefined) {
-        search = `WHERE skill LIKE '%${data.skill}%'`
+      else if (query.name === undefined && query.skill !== undefined) {
+        search = `WHERE skill LIKE '%${query.skill}%'`
       }
       
 

@@ -1,13 +1,12 @@
-const db = require('../../Configs/db')
+const db = require('../Configs/db')
 
 module.exports = {
-  loginEng: (email) => {
+  checkTotalData: () => {
     return new Promise ((resolve, reject) => {
-      db.query (
-        `SELECT * FROM user_engineer WHERE email = ?`,
-        [email],
+      db.query(
+        `SELECT * FROM engineer`,
         (err, response) => {
-          if(!err) {
+          if (!err) {
             resolve(response)
           } else {
             reject(err)
@@ -15,5 +14,6 @@ module.exports = {
         }
       )
     })
+    
   }
 }

@@ -1,13 +1,13 @@
-const model = require('../../Models/loginEng/loginEng')
+const model = require('../../Models/loginEngineer/loginEngineer')
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 module.exports = {
-  loginEng: (req, res) => {
+  loginEngineer: (req, res) => {
     const {email, password} = req.body
 
     model
-      .loginEng(email)
+      .loginEngineer(email)
       .then(result => {
         const id_engineer = result[0].id_engineer
         const passwordHash = result[0].password

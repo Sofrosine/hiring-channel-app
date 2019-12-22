@@ -1,14 +1,14 @@
 require('dotenv').config()
-const model = require('../../Models/loginCom/loginCom')
+const model = require('../../Models/loginCompany/loginCompany')
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 
 module.exports = {
-  loginCom: (req, res) => {
+  loginCompany: (req, res) => {
     const { email, password } = req.body;
     model
-      .loginCom(email)
+      .loginCompany(email)
       .then(result => {
         const id_company = result[0].id_company;
         const passwordHash = result[0].password;

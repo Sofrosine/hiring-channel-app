@@ -41,11 +41,11 @@ module.exports = {
       )
     })
   },
-  patchEngineer: (data, id) => {
+  patchEngineer: (data, date, id) => {
     return new Promise ((resolve, reject) => {
       db.query (
-        'UPDATE engineer SET ? WHERE id= ?',
-        [data, id],
+        'UPDATE engineer SET ?, dateupdated= ? WHERE id= ?',
+        [data, date, id],
         (err, response) => {
           if(!err) {
             resolve(response)

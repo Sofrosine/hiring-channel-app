@@ -53,7 +53,7 @@ module.exports = {
                 description: description,
                 location: location,
                 dateofbirth: dateofbirth,
-                datecreated: new Date()
+                datecreated: new Date(),
               }
               form.success(res, data)
             })
@@ -68,10 +68,12 @@ module.exports = {
   },
   patchEngineer: (req, res) => {
     const {query} = req
+    const date = new Date()
     const id = req.user.id_engineer
+    
     console.log(req.user)
     model
-    .patchEngineer(query, id)
+    .patchEngineer(query, date, id)
     .then(response => {
       // resolve
       res.json(response)

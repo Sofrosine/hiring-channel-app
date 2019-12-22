@@ -4,22 +4,23 @@ const form = require('../Helpers/form')
 
 module.exports = {
   filter: (req,res) => {
-    const {name, skill, limit, page, sort_by, order} = req.body
-    name
-    let data = {
-      name,
-      skill,
-      limit,
-      page,
-      sort_by,
-      order
-    }
+    // const {name, skill, limit, page, sort_by, order} = req.body
+    const {query} = req
+    // name
+    // let data = {
+    //   name,
+    //   skill,
+    //   limit,
+    //   page,
+    //   sort_by,
+    //   order
+    // }
 
     model
-      .filter(data)
+      .filter(query)
       .then(response => {
         // Resolve
-        form.success(res, response)
+        form.filter(res, query, response)
       })
       .catch(err => {
         // Reject

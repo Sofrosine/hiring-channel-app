@@ -4,7 +4,7 @@ const auth = require('../Helpers/auth')
 
 const controller = require("../Controllers/company");
 const registerController = require("../Controllers/crudUserComp/registerComp");
-const loginController = require("../Controllers/loginCom/loginCom");
+const loginController = require("../Controllers/loginCompany/loginCompany");
 
 const Router = express.Router();
 
@@ -14,7 +14,7 @@ Router.post("/", auth.authentication, controller.postCompany); // localhost:5000
 Router.patch("/", auth.authentication, controller.patchCompany); // localhost:5000/company/:id
 Router.delete("/:id", controller.deleteCompany); // localhost:5000/company/:id
 
-Router.get("/login", loginController.loginCom); //localhost:5000/company/login
+Router.get("/login", loginController.loginCompany); //localhost:5000/company/login
 Router.post("/register", registerController.registerComp); // localhost:5000/company/register
 
 // POST method for user included on register's endpoint

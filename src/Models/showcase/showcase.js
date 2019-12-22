@@ -4,7 +4,7 @@ module.exports = {
   addShowcase: (query) => {
     return new Promise ((resolve,reject) => {
       db.query(
-        `INSERT INTO showcase SET showcase_name='${query.showcase}'`,
+        `INSERT INTO showcase SET showcase='${query.showcase}'`,
         (err,response) => {
           if(!err) {
             resolve(response)
