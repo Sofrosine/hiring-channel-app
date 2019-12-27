@@ -48,8 +48,8 @@ module.exports = {
   deleteSkill: (params) => {
     return new Promise ((resolve, reject) => {
       db.query(
-        `DELETE FROM skills WHERE ?`,
-        [params],
+        `DELETE FROM skills WHERE id_engineer= ? AND id_skill = ?`,
+        [params.id_engineer, params.id_skill],
         (err, response) => {
           if (!err) {
             resolve(response)

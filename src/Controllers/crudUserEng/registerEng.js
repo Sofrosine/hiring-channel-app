@@ -1,14 +1,18 @@
 const model = require("../../Models/crudUserEng/registerEng");
 const form = require("../../Helpers/form");
 const modelCheck = require("../../Models/checkEmail/checkEmail");
+const uuidv1 = require("uuid/v1");
 
 const bcrypt = require("bcryptjs");
 
 module.exports = {
   registerEng: (req, res) => {
-    const { email, id_engineer } = req.body;
+    const { email} = req.body;
     let password = req.body.password;
-    let uniqueId = Math.floor(Math.random() * 10000) + 1
+    // let uniqueId = Math.floor(Math.random() * 10000) + 1
+    let uniqueIdx = uuidv1().split('-')[0]
+    let uniqueId = uniqueIdx.match(/\d+/g)[0] +1;
+    console.log(uniqueId)
     // const password = bcrypt.hashSync(req.body.password)
     if (/.+@.+\..+/.test(email) !== false && email.length > 3) {
       if (

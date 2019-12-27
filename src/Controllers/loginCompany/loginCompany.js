@@ -1,15 +1,16 @@
-require('dotenv').config()
-const model = require('../../Models/loginCompany/loginCompany')
-const bcryptjs = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-
+require("dotenv").config();
+const model = require("../../Models/loginCompany/loginCompany");
+const bcryptjs = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 module.exports = {
   loginCompany: (req, res) => {
-    const { email, password } = req.body;
+    const { email, password } = req.query;
+    console.log(email);
     model
       .loginCompany(email)
       .then(result => {
+        console.log(result);
         const id_company = result[0].id_company;
         const passwordHash = result[0].password;
 
@@ -19,13 +20,13 @@ module.exports = {
             process.env.ACCESS_TOKEN_SECRET,
             { expiresIn: "1h" }
           );
-          
+
           res.json({
             status: 200,
             message: "login success",
             data: {
               email,
-              token,
+              token
             }
           });
         } else {
@@ -43,4 +44,4 @@ module.exports = {
         });
       });
   }
-}
+};

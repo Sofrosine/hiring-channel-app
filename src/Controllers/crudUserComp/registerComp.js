@@ -1,6 +1,7 @@
 const model = require("../../Models/crudUserComp/registerComp");
 const modelCheck = require("../../Models/checkEmail/checkEmail");
 const form = require("../../Helpers/form");
+const uuidv1 = require("uuid/v1");
 
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
@@ -8,9 +9,10 @@ const SECRET_KEY = "secretkey23456";
 
 module.exports = {
   registerComp: (req, res) => {
-    const { email, id_company } = req.body;
+    const { email} = req.body;
     let password = req.body.password;
-    let uniqueId = Math.floor(Math.random() * 10000) + 1
+    let uniqueIdx = uuidv1().split("-")[0];
+    let uniqueId = uniqueIdx.match(/\d+/g)[0] + 1;
     // const password = bcrypt.hashSync(req.body.password)
     if (/.+@.+\..+/.test(email) !== false && email.length > 3) {
       if (
