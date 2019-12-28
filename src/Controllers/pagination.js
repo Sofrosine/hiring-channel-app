@@ -24,10 +24,8 @@ module.exports = {
               status: 200,
               msg: "Success",
               page:
-                req.query.page +
-                " from " +
-                Math.ceil(result.length / req.query.limit) +
-                " pages",
+                req.query.page,
+              pages: Math.ceil(result.length / req.query.limit),
               total: result.length + " results",
               data
             });

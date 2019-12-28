@@ -25,6 +25,7 @@ module.exports = {
             status: 200,
             message: "login success",
             data: {
+              id_company,
               email,
               token
             }
