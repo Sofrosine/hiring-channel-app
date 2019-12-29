@@ -13,18 +13,6 @@ module.exports = {
       })
     })
   },
-  // getProfile: () => {
-  //   return new Promise((resolve, reject) => {
-  //     db.query('SELECT * FROM engineer',
-  //       (err, response) => {
-  //         if (!err) {
-  //           resolve(response)
-  //         } else {
-  //           reject(err)
-  //         }
-  //       })
-  //   })
-  // },
   postEngineer: (data) => {
     return new Promise ((resolve, reject) => {
       db.query (

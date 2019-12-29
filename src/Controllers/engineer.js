@@ -22,7 +22,7 @@ module.exports = {
       .then(responses => {
         // // Resolve
         console.log(req.user);
-        console.log(responses);
+        // console.log(responses);
         res.json(
           responses.filter(response => response.id === req.user.id_engineer)
         );
