@@ -27,6 +27,7 @@ Router.patch('/company/project/:id_project', auth.authentication, projectCompany
 Router.get('/company/getProject', auth.authentication, projectCompanyController.getProject)
 Router.patch('/company/updateProject', auth.authentication, projectCompanyController.updateProject)
 Router.post('/company/insertProject', auth.authentication, projectCompanyController.insertRequest)
+Router.post('/company/addProject', auth.authentication, projectCompanyController.insertProject)
    
 
 

@@ -58,5 +58,16 @@ module.exports = {
       .catch(err => {
         console.log(err)
       })
+  },
+  insertProject: (req,res) => {
+    const {project_name,  id_company} = req.body
+    model
+    .insertProject(project_name, id_company)
+    .then(response => {
+      console.log(response)
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
 }

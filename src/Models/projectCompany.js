@@ -89,6 +89,21 @@ module.exports = {
         }
       )
     })
+  },
+  insertProject: (data,id) => {
+    return new Promise((resolve,reject) => {
+      db.query(
+        `INSERT INTO project SET project_name = ?, id_company = ?`,
+        [data,id],
+        (err,response) => {
+          if(!err) {
+            resolve(response)
+          } else {
+            reject(err)
+          }
+        }
+      )
+    })
   }
 
 }
