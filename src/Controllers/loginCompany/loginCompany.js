@@ -18,7 +18,7 @@ module.exports = {
           const token = jwt.sign(
             { id_company: id_company },
             process.env.ACCESS_TOKEN_SECRET,
-            { expiresIn: "1h" }
+            { expiresIn: "24h" }
           );
 
           res.json({

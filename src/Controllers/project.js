@@ -17,8 +17,11 @@ module.exports = {
     model
     .getProject()
     .then(responses => {
-      console.log(responses)
-      res.json(responses.filter(response => response.id_engineer === req.user.id_engineer && response.is_accept === 2 || response.is_accept === 1)) 
+      if (responses.filter(response => response.id_engineer === req.user.id_engineer).length !== 0) {
+        res.json(responses.filter(response => (response.id_engineer === req.user.id_engineer) && (response.is_accept === 2 || response.is_accept === 1)))
+      } else {
+        res.json(responses.filter(response => response.id_engineer === req.user.id_engineer))
+      }
     })
     .catch(err => { 
       console.log(err)  

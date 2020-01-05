@@ -42,8 +42,8 @@ module.exports = {
   deleteStatus: (params) => {
     return new Promise((resolve, reject) => {
       db.query(
-        'DELETE FROM request WHERE id_engineer= ? AND id = ?',
-        [params.id_engineer, params.id],
+        'DELETE FROM request WHERE id_project= ? AND id_engineer = ?',
+        [params.id_project, params.id_engineer],
         (err, response) => {
           if (!err) {
             resolve(response)

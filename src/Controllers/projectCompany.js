@@ -14,11 +14,23 @@ module.exports = {
     })
   },
   updateStatus: (req,res) => {
+    const { status } = req.body;
+    const { id_project } = req.params 
+    model
+      .updateStatus(status, id_project) 
+      .then(response => {
+        console.log(req.user)
+        res.json(response)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  },
+  updateStatus2: (req, res) => {
     const { query } = req;
     const { id_project } = req.params
-    console.log('query', query)   
     model
-      .updateStatus(query, id_project)
+      .updateStatus2(query, id_project)
       .then(response => {
         console.log(req.user)
         res.json(response)
@@ -65,6 +77,17 @@ module.exports = {
     .insertProject(project_name, id_company)
     .then(response => {
       console.log(response)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  },
+  deleteProject: (req,res) => {
+    const {id_project} = req.params
+    model
+    .deleteProject(id_project)
+    .then(response => {
+      res.json(response)
     })
     .catch(err => {
       console.log(err)

@@ -16,11 +16,11 @@ module.exports = {
       )
     });
   },
-  updateStatus: (data, id) => {
+  updateStatus: (body, id) => {
     return new Promise ((resolve,reject) => {
       db.query(
-        `UPDATE project SET ? WHERE id_project= ?`,
-        [data, id],
+        `UPDATE project SET status = ?, id_engineer = NULL WHERE id_project= ?`, 
+        [body, id],
          (err, response) => {
            if(!err) {
              resolve(response)
@@ -30,6 +30,21 @@ module.exports = {
          }
       )
     }) 
+  },
+  updateStatus2: (query, id) => {
+    return new Promise((resolve, reject) => {
+      db.query(
+        `UPDATE project SET ? WHERE id_project= ?`,
+        [query, id],
+        (err, response) => {
+          if (!err) {
+            resolve(response)
+          } else {
+            reject(err)
+          }
+        }
+      )
+    })
   },
   postProject: (data, id) => {
     return new Promise((resolve, reject) => {
@@ -104,6 +119,22 @@ module.exports = {
         }
       )
     })
-  }
+  },
+  deleteProject: (id) => {
+    return new Promise ((resolve, reject) => {
+      db.query(
+        `DELETE FROM project WHERE id_project = ?`,
+        [id],
+        (err, response) => {
+          if(!err) {
+            resolve(response)
+          } else {
+            reject(err)
+          }
+        }
+      )
+    })
+  },
+  
 
 }
