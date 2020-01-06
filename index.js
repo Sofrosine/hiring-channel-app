@@ -5,6 +5,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const router = require('./src/Routes/index')
+const PORT = process.env.PORT || 5000;
 
 
 const index = express();
@@ -17,8 +18,8 @@ index.use(bodyParser.urlencoded({ extended: true }));
 
 index.use('/', router);
 
-index.listen(5000, () => {
-  console.log('Server is running')
+index.listen(PORT, () => {
+  console.log(`Server is running on ${PORT}`)
 })
 
 module.exports = index
