@@ -50,12 +50,13 @@ module.exports = {
       });
   },
   postEnginner: (req, res) => {
-    const { name, description, location, dateofbirth } = req.body;
+    const { name, description,description2, location, dateofbirth } = req.body;
     console.log(req.user)
     const id = req.user.id_engineer;
     const data = {
       name,
       description,
+      description2,
       location,
       dateofbirth,
       datecreated: new Date(),
@@ -76,6 +77,7 @@ module.exports = {
               id: response.insertId,
               name: name,
               description: description,
+              description2: description2,
               location: location,
               dateofbirth: dateofbirth,
               datecreated: new Date()

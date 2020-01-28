@@ -49,6 +49,15 @@ module.exports = {
       console.log(err)
     })
   },
+  getProject2: (req,res) => {
+    model.getProject()
+    .then(response => {
+      res.json(response)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  },
   updateProject: (req, res) => {
     const {id_engineer,status, id_project} = req.query
     model
